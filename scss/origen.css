@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* estilos generales */
+body {
+  background-color: #4DA85E;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body #grid {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "header header" "nav nav" "propaganda propaganda" "busqueda productos" "footer footer";
+  -ms-grid-columns: 1fr 8fr;
+      grid-template-columns: 1fr 8fr;
+}
+
+body .gridHeader {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: header;
+  border: solid black 1px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "logo buscar perfil";
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F03255;
+  width: 100%;
+}
+
+body .gridHeader .imgLogo {
+  height: 100px;
+  -webkit-animation-name: caida;
+          animation-name: caida;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+body nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1px;
+  z-index: 3;
+}
+
+body nav .menu {
+  background-color: #fc0000;
+  font-size: 30px;
+  border: solid black 3px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@-webkit-keyframes caida {
+  0% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes caida {
+  0% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+/* GRID */
+#gridContacto {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "header header" "nav nav " "redes form " "footer footer";
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#gridCarrito {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "header" "nav" "compra" "footer";
+}
+
+#gridPerfil {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "header" "nav" "usuario" "footer";
+}
+
+#gridPerfil .gridUsuario {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: usuario;
+  height: 20em;
+}
+
+/* RESPONSIVE */
+/* Smartphone */
+@media (max-width: 481px) {
+  #grid {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: " header" " nav" " propaganda" " productos" " footer";
+    -ms-grid-columns: 1fr 8fr;
+        grid-template-columns: 1fr 8fr;
+  }
+  section#productos {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  nav {
+    position: relative;
+  }
+  .menu {
+    font-size: 15px;
+  }
+  section#busqueda {
+    display: none;
+  }
+  #carouselExampleIndicators {
+    display: none;
+  }
+  .gridHeader {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: header;
+    border: solid black 1px;
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "logo buscar perfil";
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background-color: #ff0644;
+    width: 100%;
+  }
+  .imgLogo {
+    height: 3em;
+  }
+  body {
+    background-color: blue;
+  }
+}
+
+/* TABLET */
+@media (min-width: 482px) and (max-width: 768px) {
+  body {
+    background-color: purple;
+  }
+  nav {
+    position: static;
+  }
+  .menu {
+    background-color: brown;
+    font-size: 20px;
+  }
+  section#productos {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  section#busqueda {
+    display: none;
+  }
+  #carouselExampleIndicators {
+    display: none;
+  }
+}
+
+/* TABLET APAISADA */
+@media (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
+  body {
+    background-color: brown;
+  }
+}
+
+/* Pseudoclases */
+a:hover {
+  color: blue;
+}
+
+a:active {
+  color: #4DA85E;
+}
+
+/*
+.fotoPerfil{
+    height: 20%;
+    transition: all 0.6s;
+}
+.imgProducto{
+    height: 7em;
+}
+.fotoPerfil:hover{
+    height: 40%;
+    background-color: green;
+    position: relative ;
+}
+
+.bordered{
+    display: inline-block;
+    padding: 0.5%;
+    border: solid black 1px;
+}
+.gridCompra{
+    grid-area: compra;
+    padding-left: 5%;
+}
+
+ .gridRedes{
+    grid-area: redes;
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    padding: 50px;
+    .imgRed{
+        height: 2em;
+        width: 2em;
+    }
+ }
+.gridForm{
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    padding: 50px;
+    }
+nav{
+    grid-area: nav;
+}
+
+section#productos{
+    grid-area: productos;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-around;
+}
+
+section#busqueda{
+    grid-area: busqueda;
+
+}
+.propaganda{
+    grid-area: propaganda;
+}
+
+footer{
+    display: grid;
+    grid-area: footer;
+    background-color: #FFC2CD ;
+    grid-template-areas: 
+    "redes mapa links"
+    ;
+    grid-template-columns: 2fr 4fr 2fr;
+    justify-content: space-between;
+    align-items: center;
+    .redes{
+        grid-area: redes;
+    }
+    .mapa{
+    grid-area: mapa;
+    }
+    .links{
+        grid-area: links;
+    }
+
+}
+*/
+/*# sourceMappingURL=origen.css.map */
